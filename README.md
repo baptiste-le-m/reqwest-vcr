@@ -15,6 +15,28 @@ Builds on top of:
  - [reqwest-middleware](https://github.com/TrueLayer/reqwest-middleware)
  - [VCR-cassette](https://github.com/http-rs/vcr-cassette/)
 
+## Compatibility
+
+This crate supports both `reqwest` 0.12 and 0.13. Select the version matching
+your project using feature flags:
+
+| Feature | reqwest | reqwest-middleware |
+|---|---|---|
+| `reqwest-0_13` (default) | 0.13 | 0.5 |
+| `reqwest-0_12` | 0.12 | 0.4 |
+
+```toml
+# For reqwest 0.13 (default)
+[dependencies]
+reqwest-vcr = "0.4"
+
+# For reqwest 0.12
+[dependencies]
+reqwest-vcr = { version = "0.4", default-features = false, features = ["reqwest-0_12"] }
+```
+
+The two features are mutually exclusive.
+
  # Examples
 
 To record HTTP requests, initialize client like following

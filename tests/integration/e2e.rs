@@ -1,3 +1,13 @@
+#[cfg(feature = "reqwest-0_12")]
+extern crate reqwest_0_12 as reqwest;
+#[cfg(feature = "reqwest-0_12")]
+extern crate reqwest_middleware_0_4 as reqwest_middleware;
+
+#[cfg(feature = "reqwest-0_13")]
+extern crate reqwest_0_13 as reqwest;
+#[cfg(feature = "reqwest-0_13")]
+extern crate reqwest_middleware_0_5 as reqwest_middleware;
+
 use reqwest::Client;
 use std::{path::PathBuf, time::Duration};
 
