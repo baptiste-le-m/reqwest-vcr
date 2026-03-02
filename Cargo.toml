@@ -43,6 +43,7 @@ tracing = {version="0.1.36", features=["log"]}
 vcr-cassette = "2"
 
 [dev-dependencies]
+reqwest = { version = "0.12", features = ["default-tls"] }
 tokio = { version = "1.17.0", features = ["full"] }
 tracing-subscriber = { version = "0.3", features = ["registry", "env-filter"] }
 tracing-test = { version = "0.2.4", features = ["no-env-filter"] }
