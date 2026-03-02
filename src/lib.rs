@@ -15,21 +15,21 @@
 //! # extern crate reqwest_middleware_0_4 as reqwest_middleware;
 //! # #[cfg(feature = "reqwest-0_13")]
 //! # extern crate reqwest_middleware_0_5 as reqwest_middleware;
-//!         use std::path::PathBuf;
-//!         use reqwest::Client;
-//!         use reqwest_middleware::{ClientBuilder, ClientWithMiddleware};
-//!         use reqwest_vcr::{VCRMiddleware, VCRMode};
+//! use std::path::PathBuf;
+//! use reqwest::Client;
+//! use reqwest_middleware::{ClientBuilder, ClientWithMiddleware};
+//! use reqwest_vcr::{VCRMiddleware, VCRMode};
 //!
-//!         let mut bundle = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-//!         bundle.push("tests/resources/replay.vcr.json");
+//! let mut bundle = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+//! bundle.push("tests/resources/replay.vcr.json");
 //!
-//!         let middleware: VCRMiddleware = VCRMiddleware::try_from(bundle.clone())
-//!             .unwrap()
-//!             .with_mode(VCRMode::Record);
+//! let middleware: VCRMiddleware = VCRMiddleware::try_from(bundle.clone())
+//!     .unwrap()
+//!     .with_mode(VCRMode::Record);
 //!
-//!         let vcr_client: ClientWithMiddleware = ClientBuilder::new(reqwest::Client::new())
-//!             .with(middleware)
-//!             .build();
+//! let vcr_client: ClientWithMiddleware = ClientBuilder::new(reqwest::Client::new())
+//!     .with(middleware)
+//!     .build();
 //! ```
 //!
 //! To use recorded VCR cassette files, replace `.with_mode(VCRMode::Record)`
