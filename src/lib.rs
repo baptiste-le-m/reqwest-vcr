@@ -26,6 +26,25 @@
 //!
 //! To use recorded VCR cassette files, replace `.with_mode(VCRMode::Record)`
 //!  with `.with_mode(VCRMode::Replay)`
+
+#[cfg(all(feature = "reqwest-0_12", feature = "reqwest-0_13"))]
+compile_error!(
+    "Features `reqwest-0_12` and `reqwest-0_13` are mutually exclusive. Please enable only one."
+);
+
+#[cfg(not(any(feature = "reqwest-0_12", feature = "reqwest-0_13")))]
+compile_error!("Either `reqwest-0_12` or `reqwest-0_13` feature must be enabled.");
+
+#[cfg(feature = "reqwest-0_12")]
+extern crate reqwest_0_12 as reqwest;
+#[cfg(feature = "reqwest-0_12")]
+extern crate reqwest_middleware_0_4 as reqwest_middleware;
+
+#[cfg(feature = "reqwest-0_13")]
+extern crate reqwest_0_13 as reqwest;
+#[cfg(feature = "reqwest-0_13")]
+extern crate reqwest_middleware_0_5 as reqwest_middleware;
+
 #[cfg(feature = "compress")]
 use std::io::Read;
 #[cfg(feature = "compress")]

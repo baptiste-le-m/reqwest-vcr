@@ -15,7 +15,7 @@ jobs:
   release-plz-release:
     name: Release-plz release
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'Gaelik-git' }}
+    if: ${{ github.repository_owner == 'baptiste-le-m' }}
     permissions:
       contents: write
     steps:
@@ -37,7 +37,7 @@ jobs:
   release-plz-pr:
     name: Release-plz PR
     runs-on: ubuntu-latest
-    if: ${{ github.repository_owner == 'Gaelik-git' }}
+    if: ${{ github.repository_owner == 'baptiste-le-m' }}
     permissions:
       contents: write
       pull-requests: write

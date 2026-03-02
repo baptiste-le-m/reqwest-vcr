@@ -13,6 +13,10 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        reqwest-version: ["reqwest-0_12", "reqwest-0_13"]
+    name: test (${{ matrix.reqwest-version }})
     steps:
       - uses: actions/checkout@v2
 
@@ -29,15 +33,15 @@ jobs:
       - name: Lint
         run: |
           cargo fmt -- --check
-          cargo clippy -- -D warnings
+          cargo clippy --no-default-features --features=${{ matrix.reqwest-version }} -- -D warnings
 
       - name: Test
         run: |
-          cargo check
+          cargo check --no-default-features --features=${{ matrix.reqwest-version }}
           docker compose up -d
-          cargo test --all
-          cargo test --features=compress --all
+          cargo test --no-default-features --features=${{ matrix.reqwest-version }} --all
+          cargo test --no-default-features --features=${{ matrix.reqwest-version }},compress --all
 
       - name: Build
         run: |
-          cargo build --release
+          cargo build --no-default-features --features=${{ matrix.reqwest-version }} --release
