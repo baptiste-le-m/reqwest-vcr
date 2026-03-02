@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1](https://github.com/baptiste-le-m/reqwest-vcr/compare/v0.3.0...v0.3.1) - 2026-03-02
+
+### Added
+
+- support both reqwest 0.12 and 0.13 via feature flags
+
+### Fixed
+
+- add reqwest with default-tls to dev-dependencies
+
+### Other
+
+- Remove default features from reqwest dependency
+- Update README.md
+- release v0.2.1
+
 ## [0.3.0](https://github.com/Gaelik-git/reqwest-vcr/releases/tag/v0.3.0) - 2025-03-20
 
 ### Other
